@@ -1,0 +1,19 @@
+# Local configuration
+/config/database.php
+
+# Uploads & Temp
+/uploads/
+/temp/
+*.log
+
+# System files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
