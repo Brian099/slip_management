@@ -65,37 +65,37 @@ if ($user_role === 'finance') {
             <h1>仪表板</h1>
             
             <div class="stats-cards">
-                <div class="card stats-total-amount">
+                <a href="invoices.php" class="card stats-total-amount" title="点击查看全部发票">
                     <h3>
                         <?php echo $user_role === 'sales' ? '我的发票总数' : '总发票数'; ?>
                     </h3>
                     <p class="stat-number"><?php echo $total_invoices; ?></p>
-                </div>
+                </a>
                 
-                <div class="card stats-pending">
+                <a href="invoices.php?filter=pending" class="card stats-pending" title="点击查看待开票列表">
                     <h3>待开票</h3>
                     <p class="stat-number"><?php echo $pending_invoices; ?></p>
-                </div>
+                </a>
                 
-                <div class="card stats-invoiced">
+                <a href="invoices.php?filter=invoiced" class="card stats-invoiced" title="点击查看已开票列表">
                     <h3>已开票</h3>
                     <p class="stat-number"><?php echo $invoiced_invoices; ?></p>
-                </div>
+                </a>
 
-                <div class="card stats-incorrect" style="border-left: 4px solid #f7a35c;">
+                <a href="invoices.php?filter=incorrect" class="card stats-incorrect" title="点击查看有误发票列表">
                     <h3>发票有误</h3>
                     <p class="stat-number"><?php echo $incorrect_invoices; ?></p>
-                </div>
+                </a>
                 
                 <?php if ($user_role === 'finance'): ?>
-                <div class="card stats-voided">
+                <a href="invoices.php?filter=voided" class="card stats-voided" title="点击查看已作废列表">
                     <h3>已作废</h3>
                     <p class="stat-number"><?php echo $voided_invoices ?? 0; ?></p>
-                </div>
+                </a>
                 <?php endif; ?>
                 
                 <?php if ($user_role === 'sales'): ?>
-                <div class="card stats-total">
+                <a href="invoices.php" class="card stats-total" title="点击查看我的发票">
                     <h3>总金额</h3>
                     <p class="stat-number">
                         <?php 
@@ -103,9 +103,9 @@ if ($user_role === 'finance') {
                         echo '¥' . number_format($total_amount ?: 0, 2);
                         ?>
                     </p>
-                </div>
+                </a>
                 <?php else: ?>
-                <div class="card stats-seller">
+                <a href="users.php" class="card stats-seller" title="点击查看用户管理">
                     <h3>业务员数</h3>
                     <p class="stat-number">
                         <?php 
@@ -113,7 +113,7 @@ if ($user_role === 'finance') {
                         echo $sales_count;
                         ?>
                     </p>
-                </div>
+                </a>
                 <?php endif; ?>
             </div>
             
