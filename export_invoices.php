@@ -16,8 +16,6 @@ $invoice_type = $_POST['invoice_type'] ?? ''; // 关键：接收发票类型
 $format = $_POST['format'] ?? 'excel';
 $fields = $_POST['fields'] ?? [];
 $include_items = isset($_POST['include_items']) && $_POST['include_items'] == '1';
-$start_date = $_POST['start_date'] ?? '';
-$end_date = $_POST['end_date'] ?? '';
 $salesperson_id = $_POST['salesperson_id'] ?? '';
 
 // 验证字段选择
@@ -104,14 +102,6 @@ if (!empty($search)) {
     $params[] = $search_term;
     $params[] = $search_term;
     $types .= 'ssss';
-}
-
-// 时间范围条件
-if (!empty($start_date) && !empty($end_date)) {
-    $where[] = "DATE(i.created_at) BETWEEN ? AND ?";
-    $params[] = $start_date;
-    $params[] = $end_date;
-    $types .= 'ss';
 }
 
 $where_sql = $where ? 'WHERE ' . implode(' AND ', $where) : '';

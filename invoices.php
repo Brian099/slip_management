@@ -1009,16 +1009,6 @@ if (isset($_SESSION['batch_message'])) {
                             <small class="text-muted">（勾选后将导出每张发票的货物明细）</small>
                         </div>
 
-                        <div class="form-group">
-                            <label for="date_range">时间范围：</label>
-                            <div style="display: flex; gap: 10px;">
-                                <input type="date" name="start_date" id="start_date" class="form-control">
-                                <span>至</span>
-                                <input type="date" name="end_date" id="end_date" class="form-control">
-                            </div>
-                            <small class="text-muted">（不选择时间范围则导出所有符合筛选条件的数据）</small>
-                        </div>
-
                     </form>
                 </div>
             </div>
@@ -1215,13 +1205,6 @@ if (isset($_SESSION['batch_message'])) {
                     salespersonInput.value = currentSalespersonId;
                 }
 
-                // 设置默认日期范围（最近30天）
-                const today = new Date();
-                const lastMonth = new Date(today);
-                lastMonth.setDate(today.getDate() - 30);
-
-                document.getElementById('end_date').value = today.toISOString().split('T')[0];
-                document.getElementById('start_date').value = lastMonth.toISOString().split('T')[0];
             }
         }
         // 关闭导出模态框
